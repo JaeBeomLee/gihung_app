@@ -93,6 +93,8 @@ public class MainActivity extends Activity {
 	private CheckBox check;
 
 	private boolean hakbanChange;
+	
+	
 	Calendar calendar = new GregorianCalendar();
 
 	Date date = new Date();
