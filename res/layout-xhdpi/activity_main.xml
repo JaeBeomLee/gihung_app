@@ -1,0 +1,457 @@
+<?xml version="1.0"?>
+<FrameLayout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000"
+    android:orientation="vertical"
+    tools:context=".MainActivity" >
+
+    <!-- 1번 -->
+    <!-- 2번 -->
+    <!-- 3번 -->
+
+    <LinearLayout
+        android:id="@+id/whole_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:onClick="WholeLayout"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="2.6"
+            android:orientation="horizontal" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:padding="4dp" >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="#32984A"
+                    android:orientation="vertical" >
+
+                    <TextView
+                        android:id="@+id/hakban"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1.4"
+                        android:gravity="center_horizontal|bottom"
+                        android:text="1 - 1"
+                        android:textColor="#FFFFFF"
+                        android:textSize="30dp" />
+
+                    <TextView
+                        android:id="@+id/irum"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="top|center_horizontal"
+                        android:text="홍길동"
+                        android:textColor="#FFFFFF"
+                        android:textSize="45dp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/Memo"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1.5"
+                android:onClick="Linear"
+                android:orientation="vertical"
+                android:padding="4dp" >
+
+                <TextView
+                    android:id="@+id/memo2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="#DCE31F"
+                    android:gravity="center_vertical|center_horizontal"
+                    android:paddingBottom="2dp"
+                    android:paddingTop="2dp"
+                    android:text="Memo"
+                    android:textColor="#22007F"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1.2"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="horizontal" >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2.3"
+                    android:orientation="vertical"
+                    android:padding="4dp" >
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="4.5"
+                        android:orientation="vertical" >
+
+                        <TextView
+                            android:id="@+id/yoil"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="#EF8102"
+                            android:gravity="center_vertical|center_horizontal"
+                            android:text="요일"
+                            android:textColor="#FFFFFF"
+                            android:textSize="19dp" />
+                    </LinearLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1" >
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical" >
+
+                            <TextView
+                                android:id="@+id/timetable"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="#EF8102"
+                                android:gravity="center_horizontal|center_vertical"
+                                android:text="1 과목\n2 과목\n3 과목\n4 과목\n5 과목\n6 과목\n7 과목"
+                                android:textColor="#FFFFFF"
+                                android:textSize="27dp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical" >
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1" >
+
+                                <TextView
+                                    android:id="@+id/textView1"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:gravity="top|center_horizontal"
+                                    android:text="△"
+                                    android:textColor="#FFFFFF"
+                                    android:textStyle="bold" />
+
+                                <Button
+                                    android:id="@+id/back"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:background="#000000ff"
+                                    android:onClick="Back" />
+                            </RelativeLayout>
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1" >
+
+                                <TextView
+                                    android:id="@+id/textView2"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:gravity="bottom|center_horizontal"
+                                    android:text="▽"
+                                    android:textColor="#FFFFFF"
+                                    android:textStyle="bold" />
+
+                                <Button
+                                    android:id="@+id/forward"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:background="#000000ff"
+                                    android:onClick="Forward" />
+                            </RelativeLayout>
+                        </LinearLayout>
+                    </RelativeLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="4.5"
+                        android:orientation="vertical"
+                        android:paddingTop="4dp" >
+
+                        <Button
+                            android:id="@+id/reset"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="#EF8102"
+                            android:gravity="center_vertical|center_horizontal"
+                            android:onClick="Reset"
+                            android:text="오늘 요일"
+                            android:textColor="#FFFFFF" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical" >
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="8"
+                        android:orientation="horizontal"
+                        android:padding="4dp" >
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:background="#009EDB"
+                            android:orientation="horizontal" >
+
+                            <Button
+                                android:id="@+id/Yesterday_bab"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:background="#00ffffff"
+                                android:onClick="yesterday_bab"
+                                android:text="◁"
+                                android:textColor="#ffffff" />
+
+                            <Button
+                                android:id="@+id/today_bab"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:background="#00000000"
+                                android:gravity="center"
+                                android:text="Today"
+                                android:onClick="today_bab"
+                                android:textColor="#ffffff" />
+
+                            <TextView
+                                android:id="@+id/bab_day"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:gravity="center_horizontal|center_vertical"
+                                android:text="00.00"
+                                android:textColor="#ffffff" />
+
+                            <Button
+                                android:id="@+id/tomorrow_bab"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:background="#00ffffff"
+                                android:onClick="tomorrow_bab"
+                                android:text="▷"
+                                android:textColor="#ffffff" />
+                        </LinearLayout>
+                    </LinearLayout>
+                    
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="vertical" >
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:padding="4dp" >
+
+                            <TextView
+                                android:id="@+id/lunchtxt"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:background="#009EDB"
+                                android:gravity="center_vertical|center_horizontal"
+                                android:text="Lunch"
+                                android:textColor="#FFFFFF"
+                                android:textSize="20dp" />
+
+                            <Button
+                                android:id="@+id/resetlunch"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignRight="@+id/lunchtxt"
+                                android:layout_alignTop="@+id/lunchtxt"
+                                android:layout_weight="1"
+                                android:background="#000000ff"
+                                android:onClick="resetlunch"
+                                android:text="reset"
+                                android:textColor="#FFFFFF" />
+                        </RelativeLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:orientation="vertical" >
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:orientation="vertical"
+                                android:padding="4dp" >
+
+                                <TextView
+                                    android:id="@+id/dinnertxt"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:background="#009EDB"
+                                    android:gravity="center_vertical|center_horizontal"
+                                    android:text="dinner"
+                                    android:textColor="#FFFFFF"
+                                    android:textSize="20dp" />
+
+                                <Button
+                                    android:id="@+id/resetdinner"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignRight="@+id/dinnertxt"
+                                    android:layout_alignTop="@+id/dinnertxt"
+                                    android:layout_weight="1"
+                                    android:background="#000000ff"
+                                    android:onClick="resetdinner"
+                                    android:text="reset"
+                                    android:textColor="#FFFFFF" />
+                            </RelativeLayout>
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="2.8"
+            android:orientation="vertical" >
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1" >
+
+                <ImageButton
+                    android:id="@+id/barcodebutton"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:adjustViewBounds="true"
+                    android:onClick="BarcodeSetting"
+                    android:padding="4dp"
+                    android:scaleType="fitXY" />
+
+                <TextView
+                    android:id="@+id/settingplease"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical|center_horizontal"
+                    android:text="바코드를 설정하세요"
+                    android:textColor="#000000"
+                    android:textSize="30dp" />
+            </FrameLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/handlelayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="2.9"
+            android:background="#BD0F13"
+            android:onClick="handle"
+            android:orientation="horizontal"
+            android:padding="4dp" >
+
+            <TextView
+                android:id="@+id/time"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center_vertical|center_horizontal"
+                android:text="00월 00일 O요일"
+                android:textColor="#FFFFFF"
+                android:textSize="16dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="4"
+                android:gravity="center_vertical|center_horizontal"
+                android:text="Menu→"
+                android:textColor="#FFFFFF"
+                android:textSize="16dp" />
+        </LinearLayout>
+    </LinearLayout>
+    <!-- 4번 -->
+
+    <SlidingDrawer
+        android:id="@+id/slide"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:allowSingleTap="true"
+        android:animateOnClick="true"
+        android:content="@+id/content"
+        android:handle="@+id/handle"
+        android:orientation="horizontal"
+        android:topOffset="200dp" >
+
+        <LinearLayout
+            android:id="@+id/handle"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:background="#00FFFFFF"
+            android:orientation="horizontal" >
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/content"
+            android:layout_width="100dp"
+            android:layout_height="fill_parent"
+            android:orientation="horizontal" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+                <ListView
+                    android:id="@+id/list"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#FFFFFF" />
+            </LinearLayout>
+        </LinearLayout>
+    </SlidingDrawer>
+
+</FrameLayout>
