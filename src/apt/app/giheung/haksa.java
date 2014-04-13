@@ -32,7 +32,7 @@ public class haksa extends Activity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.haksa);
-        year = calender.getYear();
+        year = calender.getYear()+1900;
         month = calender.getMonth();
         date= calender.getDate();
         day = calender.getDay();
@@ -56,9 +56,14 @@ public class haksa extends Activity{
 
                     lastday = calendar.getActualMaximum(calendar.DAY_OF_MONTH);
                     tbody = document.toString();
-                    tbody = tbody.split("tbody")[1];
+                    tbody = tbody.split("<tbody>")[1];
+                    int count = StringUtils.countOccurrences(tbody,"<span class=\"title\">");
 
 
+//                    tbody= tbody.split("<div")[3];
+
+                    tbody = tbody.split("<span class=\"title\">")[2];
+                    tbody = tbody.replace("</span></a>","");
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
