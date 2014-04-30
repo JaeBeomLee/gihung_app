@@ -60,6 +60,9 @@ public class MainActivity extends Activity {
 	private Button yesterday_btn;
 	private CheckBox check;
 
+
+
+
 	private boolean hakbanChange;
 	
 	
@@ -97,6 +100,7 @@ public class MainActivity extends Activity {
 	final static int DIALOG_2 = 1;
 	final static int DIALOG_3 = 2;
 	final static int DIALOG_4 = 3;
+    final static int DIALOG_5 = 4;
 
 	String ban = null;
 	String irum = null;
@@ -139,6 +143,8 @@ public class MainActivity extends Activity {
 		memo2.setText(sharedPreferences.getString("MEMO", "Memo"));
 		check = (CheckBox) findViewById(R.id.check);
 		bab_day = (TextView) findViewById(R.id.bab_day);
+
+
 
 		LoadPreference();
 		if (ban2 == "") {
@@ -468,6 +474,8 @@ public class MainActivity extends Activity {
 		bab_day.setText(totalMonth + "." + totalDate);
 	}
 
+
+
 	// 학년반이름 설정
 	private void DialogSetting() {
 		final LinearLayout linear = (LinearLayout) inflater.inflate(
@@ -523,7 +531,7 @@ public class MainActivity extends Activity {
 		final LinearLayout MemoLayout = (LinearLayout) inflater.inflate(
 				R.layout.memo, null);
 		AlertDialog alt_bld = new AlertDialog.Builder(this).setTitle("메모")
-				.setView(MemoLayout).setCancelable(false)
+				.setView(MemoLayout).setCancelable(true)
 				.setPositiveButton("확인", new DialogInterface.OnClickListener() {
 
 					@Override
@@ -563,36 +571,36 @@ public class MainActivity extends Activity {
 				.setCancelable(false)
 				.setPositiveButton("확인", new DialogInterface.OnClickListener() {
 
-					@Override
-					public void onClick(DialogInterface arg0, int arg1) {
-						EditText editText = (EditText) NewYearSetting
-								.findViewById(R.id.editban_new_year);
-						if (editText.getText().toString() == null) {
-							showDialog(DIALOG_4);
-						}
+                    @Override
+                    public void onClick(DialogInterface arg0, int arg1) {
+                        EditText editText = (EditText) NewYearSetting
+                                .findViewById(R.id.editban_new_year);
+                        if (editText.getText().toString() == null) {
+                            showDialog(DIALOG_4);
+                        }
 
-						ban = editText.getText().toString();
+                        ban = editText.getText().toString();
 
-						if (ban == "") {
+                        if (ban == "") {
 
-						} else {
-							SavePreference("ban", ban);
-							hakbanChange = true;
-							SavePreference("hakbanChange", hakbanChange);
-							Cursor();
+                        } else {
+                            SavePreference("ban", ban);
+                            hakbanChange = true;
+                            SavePreference("hakbanChange", hakbanChange);
+                            Cursor();
 
-						}
-					}
-				})
+                        }
+                    }
+                })
 				.setNegativeButton("취소", new DialogInterface.OnClickListener() {
 
-					@Override
-					public void onClick(DialogInterface arg0, int arg1) {
-						android.os.Process.killProcess(android.os.Process
-								.myPid());
+                    @Override
+                    public void onClick(DialogInterface arg0, int arg1) {
+                        android.os.Process.killProcess(android.os.Process
+                                .myPid());
 
-					}
-				}).show();
+                    }
+                }).show();
 
 		android.view.WindowManager.LayoutParams params = alt_bld.getWindow()
 				.getAttributes();
@@ -601,7 +609,150 @@ public class MainActivity extends Activity {
 		alt_bld.getWindow().setAttributes(params);
 	}
 
-	// 다이얼로그 설정창
+    private void TestTableDialog() {
+        final LinearLayout linear = (LinearLayout) inflater.inflate(
+                R.layout.test, null);
+
+
+        String Nametext = "시험 시간표";
+        if (Integer.parseInt(ban2.substring(1, 3)) < 10) {
+            Nametext = ban2.substring(0,1)+"학년 "+ ban2.substring(2,3)+"반 시험 시간표";
+        } else if (Integer.parseInt(ban2.substring(1, 3)) >= 10) {
+            Nametext = ban2.substring(0,1)+"학년 "+ ban2.substring(1,3)+"반 시험 시간표";
+        }
+        Dialog alt_bld;
+        alt_bld = new AlertDialog.Builder(this)
+                .setTitle(Nametext)
+                .setView(linear)
+                .setCancelable(true)
+                .show();
+
+        View view = (View) getLayoutInflater().inflate(R.layout.test,null);
+
+
+
+        TextView t1_1 = (TextView)alt_bld.findViewById(R.id.t1_1);
+        TextView t1_2 = (TextView)alt_bld.findViewById(R.id.t1_2);
+        TextView t1_3 = (TextView)alt_bld.findViewById(R.id.t1_3);
+        TextView t2_1 = (TextView)alt_bld.findViewById(R.id.t2_1);
+        TextView t2_2 = (TextView)alt_bld.findViewById(R.id.t2_2);
+        TextView t2_3 = (TextView)alt_bld.findViewById(R.id.t2_3);
+        TextView t3_1 = (TextView)alt_bld.findViewById(R.id.t3_1);
+        TextView t3_2 = (TextView)alt_bld.findViewById(R.id.t3_2);
+        TextView t3_3 = (TextView)alt_bld.findViewById(R.id.t3_3);
+
+
+        if(Integer.parseInt(ban2.substring(0,1))==1){
+            t1_1.setText("생활과 윤리");
+            t1_2.setText("자습");
+            t1_3.setText("수학 1");
+            t2_1.setText("생명과학 1");
+            t2_2.setText("자습");
+            t2_3.setText("국어 1");
+            t3_1.setText("한국사");
+            t3_2.setText("실용영어 1");
+        }else if(Integer.parseInt(ban2.substring(0,1))==2){
+            if(Integer.parseInt(ban2.substring(2, 3))==1
+                    ||Integer.parseInt(ban2.substring(2, 3))==2){
+
+
+                t1_1.setText("물리 1");
+                t1_2.setText("자습");
+                t1_3.setText("수학 1");
+                t2_1.setText("생명과학 1");
+                t2_2.setText("자습");
+                t2_3.setText("문학 1");
+                t3_1.setText("화학 1");
+                t3_2.setText("영어 독해와 작문");
+            }else if(Integer.parseInt(ban2.substring(2, 3))==3
+                    ||Integer.parseInt(ban2.substring(2, 3))==4
+                    ||Integer.parseInt(ban2.substring(2, 3))==5){
+                t1_1.setText("물리 1");
+                t1_2.setText("자습");
+                t1_3.setText("수학 1");
+                t2_1.setText("지구과학 1");
+                t2_2.setText("자습");
+                t2_3.setText("문학 1");
+                t3_1.setText("화학 1");
+                t3_2.setText("영어 독해와 작문");
+            }else if(Integer.parseInt(ban2.substring(2, 3))==6
+                    ||Integer.parseInt(ban2.substring(2, 3))==7
+                    ||Integer.parseInt(ban2.substring(2, 3))==8
+                    ||Integer.parseInt(ban2.substring(2, 3))==9
+                    ||Integer.parseInt(ban2.substring(1, 3))==10){
+                t1_1.setText("생활과 윤리");
+                t1_2.setText("일본어 1/ 중국어 1");
+                t1_3.setText("수학 1");
+                if(Integer.parseInt(ban2.substring(2, 3))==6
+                        ||Integer.parseInt(ban2.substring(2, 3))==7
+                        ||Integer.parseInt(ban2.substring(2, 3))==8){
+                    t2_1.setText("법과 정치");
+                }else if(Integer.parseInt(ban2.substring(2, 3))==9
+                        ||Integer.parseInt(ban2.substring(1, 3))==10){
+                    t2_1.setText("경제");
+                }
+                t2_2.setText("자습");
+                t2_3.setText("문학 1");
+                t3_1.setText("화학 1");
+                t3_2.setText("영어 독해와 작문");
+            }
+        }else if(Integer.parseInt(ban2.substring(0,1))==3){
+            if(Integer.parseInt(ban2.substring(2, 3))==1
+                    ||Integer.parseInt(ban2.substring(2, 3))==2
+                    ||Integer.parseInt(ban2.substring(2, 3))==3
+                    ||Integer.parseInt(ban2.substring(2, 3))==4
+                    ||Integer.parseInt(ban2.substring(2, 3))==5){
+                t1_1.setText("자습");
+                t1_2.setText("일본어 1 / 중국어 1");
+                t1_3.setText("적분과 통계");
+                t2_1.setText("한문 1");
+                t2_2.setText("자습");
+                t2_3.setText("독서와 문법 1");
+
+                if(Integer.parseInt(ban2.substring(2, 3))==1
+                        ){
+                    t3_1.setText("고급 물리");
+                }else if(Integer.parseInt(ban2.substring(2, 3))==2
+                        ||Integer.parseInt(ban2.substring(1, 3))==3
+                        ){
+                    t3_1.setText("고급 화학");
+                }else if(Integer.parseInt(ban2.substring(2, 3))==4
+                        ||Integer.parseInt(ban2.substring(1, 3))==5
+                        ){
+                    t3_1.setText("고급 생명과학");
+                }
+
+                t3_2.setText("영어 독해와 작문");
+            }else if(Integer.parseInt(ban2.substring(2, 3))==6
+                    ||Integer.parseInt(ban2.substring(2, 3))==7
+                    ||Integer.parseInt(ban2.substring(2, 3))==8
+                    ||Integer.parseInt(ban2.substring(2, 3))==9
+                    ||Integer.parseInt(ban2.substring(1, 3))==10){
+                t1_1.setText("한국 지리");
+                t1_2.setText("자습");
+                t1_3.setText("수학의 활용");
+                t2_1.setText("한문 1");
+                t2_2.setText("수학 연습 1");
+                t2_3.setText("독서와 문법 2");
+                t3_1.setText("사회, 문화");
+                t3_2.setText("영어 독해와 작문");
+            }
+        }
+
+        android.view.WindowManager.LayoutParams params = alt_bld.getWindow()
+                .getAttributes();
+        params.width = android.view.WindowManager.LayoutParams.MATCH_PARENT;
+        params.height = android.view.WindowManager.LayoutParams.WRAP_CONTENT;
+        alt_bld.getWindow().setAttributes(params);
+
+
+
+
+    }
+
+
+
+    // 다이얼로그 설정창
 	protected Dialog onCreateDialog(int id) {
 
 		switch (id) {
@@ -614,6 +765,9 @@ public class MainActivity extends Activity {
 		case DIALOG_4:
 			DialogNewYearSetting();
 			break;
+        case DIALOG_5:
+            TestTableDialog();
+            break;
 		}
 
 		return null;
@@ -1034,6 +1188,7 @@ public class MainActivity extends Activity {
 			Toast toast = Toast.makeText(getApplicationContext(),
 					"No scan data received!", Toast.LENGTH_SHORT);
 			toast.show();
+
 		}
 
 	}
@@ -1099,6 +1254,7 @@ public class MainActivity extends Activity {
 		list.add("메인");
 		list.add("제작");
         list.add("학사 일정");
+        list.add("시험 시간표");
 
 		ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
 				android.R.layout.simple_list_item_1, list);
@@ -1110,7 +1266,9 @@ public class MainActivity extends Activity {
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view,
 					int position, long id) {
-				if (position == 1) {
+				if (position ==0){
+                    mDialerDrawer.animateClose();
+                }else if (position == 1) {
 					Intent intent = new Intent(MainActivity.this, Maker.class);
 					startActivity(intent);
 
@@ -1118,12 +1276,19 @@ public class MainActivity extends Activity {
 				}else if(position == 2){
                     Intent intent = new Intent(MainActivity.this, haksa.class);
                     startActivity(intent);
+                    mDialerDrawer.animateClose();
+                }else if(position == 3){
+
+                    showDialog(DIALOG_5);
+                    mDialerDrawer.animateClose();
                 }
 
 			}
 		});
 
 	}
+
+
 
 	// protected void Version() {
 	//
